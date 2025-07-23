@@ -70,6 +70,11 @@ export function Hero() {
             </p>
           </div>
 
+          {/* Quote */}
+          <div className={styles.quoteContainer}>
+            <p className={styles.quote}>"Si JARVIS existiera, usaría a Boni."</p>
+          </div>
+
           {/* Countdown Timer */}
           <div className={styles.countdownContainer}>
             <h2 className={styles.countdownHeading}>Lanzamiento en:</h2>

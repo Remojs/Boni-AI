@@ -82,7 +82,7 @@ export function IntegrationsSection() {
             {/* Estadísticas */}
             <div className={styles.statsGrid}>
               <div className={styles.statCard}>
-                <div className={styles.statValue}>36+</div>
+                <div className={styles.statValue}>30+</div>
                 <div className={styles.statLabel}>Integraciones Activas</div>
               </div>
               <div className={styles.statCard}>

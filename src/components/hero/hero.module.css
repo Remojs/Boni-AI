@@ -73,7 +73,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.6rem; /* Reducción del 20% de 2rem */
   max-width: 64rem;
   margin: 0 auto;
 }
@@ -85,7 +85,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem; /* Reducción del 20% de 1rem */
 }
 
 .title span {
@@ -96,7 +96,43 @@
   font-size: 1.25rem;
   color: #5C7C89;
   max-width: 600px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 0.8rem; /* Reducción del 20% de 1rem */
+}
+
+.quoteContainer {
+  margin-bottom: 1.6rem; /* Reducción del 20% de 2rem */
+  text-align: center;
+}
+
+.quote {
+  font-style: italic;
+  color: #8ca5b0;
+  font-size: 1.2rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 1.5rem;
+}
+
+.quote::before, .quote::after {
+  content: '';
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #5C7C89;
+  opacity: 0.5;
+  border-radius: 50%;
+}
+
+.quote::before {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.quote::after {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .cta {
@@ -149,7 +185,7 @@
 /* Logo section styles */
 .logoSection {
   animation: fade-in 1s ease-out;
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem; /* Reducción del 20% de 2rem */
 }
 
 @keyframes fade-in {
@@ -161,7 +197,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem; /* Reducción del 20% de 1rem */
   color: #5C7C89;
 }
 
@@ -171,7 +207,7 @@
 }
 
 .logoContainer {
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem; /* Reducción del 20% de 2rem */
   display: flex;
   justify-content: center;
 }
