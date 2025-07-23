@@ -100,7 +100,7 @@ export function Hero() {
               </div>
             </div>
             <div className={styles.timeRemaining}>
-              Tiempo restante hasta el 1 de enero de 2026 a las 12:00 hs • {new Date().toLocaleTimeString()}
+              Tiempo restante hasta el 1 de enero de 2026 a las 12:00 hs
             </div>
           </div>
 
