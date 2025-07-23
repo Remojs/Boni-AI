@@ -201,10 +201,11 @@
 }
 
 .integrationIcon {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: #5C7C89;
   transition: all 0.3s;
+  object-fit: contain;
 }
 
 .glowEffect {

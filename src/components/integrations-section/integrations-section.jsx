@@ -1,60 +1,46 @@
 import { useState } from "react";
-import {
-  MessageSquare,
-  ImageIcon,
-  FileText,
-  Music,
-  Video,
-  Code,
-  Calculator,
-  Globe,
-  Mail,
-  Calendar,
-  Camera,
-  Headphones,
-  Cloud,
-  Zap,
-  Database,
-} from "lucide-react";
+import { Zap } from "lucide-react";
 import styles from "./integrations-section.module.css";
 
 const integrations = [
-  { icon: MessageSquare, name: "WhatsApp", color: "#5C7C89" },
-  { icon: Mail, name: "Gmail", color: "#5C7C89" },
-  { icon: FileText, name: "Google Docs", color: "#5C7C89" },
-  { icon: Calendar, name: "Calendar", color: "#5C7C89" },
-  { icon: Video, name: "Zoom", color: "#5C7C89" },
-  { icon: Code, name: "GitHub", color: "#5C7C89" },
-  { icon: ImageIcon, name: "Figma", color: "#5C7C89" },
-  { icon: Music, name: "Spotify", color: "#5C7C89" },
-  { icon: Globe, name: "Chrome", color: "#5C7C89" },
-  { icon: MessageSquare, name: "Slack", color: "#5C7C89" },
-  { icon: Video, name: "YouTube", color: "#5C7C89" },
-  { icon: FileText, name: "Notion", color: "#5C7C89" },
-  { icon: Camera, name: "Photoshop", color: "#5C7C89" },
-  { icon: Calculator, name: "Excel", color: "#5C7C89" },
-  { icon: Headphones, name: "Discord", color: "#5C7C89" },
-  { icon: ImageIcon, name: "Instagram", color: "#5C7C89" },
-  { icon: Code, name: "VS Code", color: "#5C7C89" },
-  { icon: Cloud, name: "Dropbox", color: "#5C7C89" },
-  { icon: Mail, name: "Outlook", color: "#5C7C89" },
-  { icon: Video, name: "Teams", color: "#5C7C89" },
-  { icon: MessageSquare, name: "Telegram", color: "#5C7C89" },
-  { icon: Music, name: "Apple Music", color: "#5C7C89" },
-  { icon: Globe, name: "Safari", color: "#5C7C89" },
-  { icon: FileText, name: "Trello", color: "#5C7C89" },
-  { icon: ImageIcon, name: "Canva", color: "#5C7C89" },
-  { icon: Code, name: "Replit", color: "#5C7C89" },
-  { icon: Music, name: "SoundCloud", color: "#5C7C89" },
-  { icon: Mail, name: "Mailchimp", color: "#5C7C89" },
-  { icon: Calculator, name: "Sheets", color: "#5C7C89" },
-  { icon: Camera, name: "Lightroom", color: "#5C7C89" },
-  { icon: Video, name: "Loom", color: "#5C7C89" },
-  { icon: MessageSquare, name: "Twitter", color: "#5C7C89" },
-  { icon: Database, name: "Airtable", color: "#5C7C89" },
-  { icon: Music, name: "Audacity", color: "#5C7C89" },
-  { icon: ImageIcon, name: "Sketch", color: "#5C7C89" },
-  { icon: Code, name: "CodePen", color: "#5C7C89" },
+  { name: "WhatsApp Bussiness", color: "#5C7C89" },
+  { name: "Twilio", color: "#5C7C89" },
+  { name: "Telegram", color: "#5C7C89" },
+  { name: "Slack", color: "#5C7C89" },
+  { name: "Discord", color: "#5C7C89" },
+  { name: "Gmail", color: "#5C7C89" },
+  { name: "Outlook", color: "#5C7C89" },
+  { name: "Linkedin", color: "#5C7C89" },
+  { name: "Trello", color: "#5C7C89" },
+  { name: "Asana", color: "#5C7C89" },
+  { name: "Jira", color: "#5C7C89" },
+  { name: "ClickUp", color: "#5C7C89" },
+  { name: "Airtable", color: "#5C7C89" },
+  { name: "Google Calendar", color: "#5C7C89" },
+  { name: "Microsoft To Do", color: "#5C7C89" },
+  { name: "Todoist", color: "#5C7C89" },
+  { name: "Notion", color: "#5C7C89" },
+  { name: "Clockify", color: "#5C7C89" },
+  { name: "Wolfram Alpha", color: "#5C7C89" },
+  { name: "Wikipedia", color: "#5C7C89" },
+  { name: "Github", color: "#5C7C89" },
+  { name: "Gitlab", color: "#5C7C89" },
+  { name: "CircleCI", color: "#5C7C89" },
+  { name: "Dropbox", color: "#5C7C89" },
+  { name: "Google Drive", color: "#5C7C89" },
+  { name: "Deepl Translate", color: "#5C7C89" },
+  { name: "Google Translate", color: "#5C7C89" },
+  { name: "Open Weather Map", color: "#5C7C89" },
+  { name: "Zoom", color: "#5C7C89" },
+  { name: "Youtube", color: "#5C7C89" },
+  { name: "Mailchimp", color: "#5C7C89" },
+  { name: "Google Analytics", color: "#5C7C89" },
+  { name: "Google Ads", color: "#5C7C89" },
+  { name: "Google Sheets", color: "#5C7C89" },
+  { name: "Microsoft Excel", color: "#5C7C89" },
+  { name: "Google Tasks", color: "#5C7C89" },
+  { name: "Microsoft One Drive", color: "#5C7C89" },
+  { name: "Microsoft Teams", color: "#5C7C89" },
 ];
 
 export function IntegrationsSection() {
@@ -139,8 +125,9 @@ export function IntegrationsSection() {
             <div className={styles.integrationsGrid}>
               <div className={styles.iconsGrid}>
                 {integrations.map((integration, index) => {
-                  const Icon = integration.icon;
                   const isHovered = hoveredIndex === index;
+                  // Formatear el nombre para el archivo de imagen
+                  const imageName = integration.name.replace(/\s+/g, '%20');
 
                   return (
                     <div
@@ -150,7 +137,11 @@ export function IntegrationsSection() {
                       onMouseLeave={() => setHoveredIndex(null)}
                     >
                       <div className={styles.iconBox}>
-                        <Icon className={styles.integrationIcon} />
+                        <img 
+                          src={`/src/assets/tools/${imageName}.png`} 
+                          alt={integration.name}
+                          className={styles.integrationIcon} 
+                        />
 
                         {/* Efecto de brillo */}
                         {isHovered && (
