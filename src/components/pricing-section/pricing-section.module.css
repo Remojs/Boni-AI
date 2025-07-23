@@ -1,0 +1,181 @@
+.container {
+  padding: 5rem 1rem;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #5C7C89;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.pricingGrid {
+  display: grid;
+  gap: 2rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .pricingGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  background-color: rgba(36, 36, 36, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(92, 124, 137, 0.2);
+  border-radius: 1rem;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  border-color: rgba(92, 124, 137, 0.4);
+  transform: scale(1.05);
+}
+
+.popularCard {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 2px solid #5C7C89;
+}
+
+.popularBadge {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #5C7C89;
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badgeIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.cardHeader {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid rgba(92, 124, 137, 0.1);
+}
+
+.planName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.planDescription {
+  color: #5C7C89;
+  margin-bottom: 1rem;
+}
+
+.planPrice {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.planQueries {
+  font-size: 1.125rem;
+  color: #5C7C89;
+  font-weight: 600;
+}
+
+.cardContent {
+  padding: 2rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.featuresList {
+  margin-bottom: 2rem;
+  flex: 1;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.checkIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #5C7C89;
+  flex-shrink: 0;
+}
+
+.featureText {
+  color: white;
+  line-height: 1.4;
+}
+
+.button {
+  width: 100%;
+  padding: 0.75rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.primaryButton {
+  background-color: #5C7C89;
+  color: white;
+}
+
+.primaryButton:hover {
+  background-color: #1F4959;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  border: 2px solid #5C7C89;
+  color: #5C7C89;
+}
+
+.secondaryButton:hover {
+  background-color: #5C7C89;
+  color: white;
+}
