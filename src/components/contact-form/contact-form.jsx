@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, MessageSquare, Send } from "lucide-react";
+import emailjs from '@emailjs/browser';
 import styles from "./contact-form.module.css";
 
 export function ContactForm() {
@@ -9,10 +10,52 @@ export function ContactForm() {
     message: "",
   });
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Configuración de EmailJS usando variables de entorno
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_boni_contact';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_boni_form';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+      console.log('EmailJS Config:', { serviceId, templateId, publicKey: publicKey.substring(0, 5) + '...' });
+
+      // Verificar que las variables estén configuradas
+      if (!serviceId || !templateId || !publicKey || 
+          serviceId === 'service_boni_contact' || 
+          templateId === 'template_boni_form' || 
+          publicKey === 'YOUR_PUBLIC_KEY') {
+        throw new Error('EmailJS no está configurado correctamente');
+      }
+
+      // Parámetros del template
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        to_email: 'boniassistant@gmail.com',
+        message: formData.message,
+        reply_to: formData.email,
+      };
+
+      console.log('Enviando email con parámetros:', templateParams);
+
+      const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('Email enviado exitosamente:', response);
+      
+      setSubmitStatus('success');
+      setFormData({ name: "", email: "", message: "" }); // Limpiar formulario
+    } catch (error) {
+      console.error('Error enviando email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   const handleChange = (e) => {
@@ -41,7 +84,7 @@ export function ContactForm() {
               </div>
               <div className={styles.infoContent}>
                 <h3 className={styles.infoTitle}>Email</h3>
-                <p className={styles.infoText}>contacto@tuapp.com</p>
+                <p className={styles.infoText}>boniassistant@gmail.com</p>
               </div>
             </div>
 
@@ -120,10 +163,23 @@ export function ContactForm() {
                 <button
                   type="submit"
                   className={styles.submitButton}
+                  disabled={isSubmitting}
                 >
-                  Enviar Mensaje
+                  {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
                   <Send className={styles.sendIcon} />
                 </button>
+
+                {submitStatus === 'success' && (
+                  <div className={styles.successMessage}>
+                    ¡Mensaje enviado correctamente! Te responderemos pronto.
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className={styles.errorMessage}>
+                    Error al enviar el mensaje. Por favor, intenta nuevamente o envía un email directamente a boniassistant@gmail.com
+                  </div>
+                )}
               </form>
             </div>
           </div>
