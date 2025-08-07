@@ -52,7 +52,7 @@ export function Hero() {
             {/* Main Logo */}
             <div className={styles.logoContainer}>
               <img 
-                src="/src/assets/boni-logo.png" 
+                src="/assets/boni-logo.png" 
                 alt="Boni AI Assistant"
                 className={styles.logo}
               />

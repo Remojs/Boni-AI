@@ -34,7 +34,7 @@ export function Navbar() {
           {/* Logo */}
           <div className={styles.logoContainer}>
             <img
-              src="/src/assets/boni-logo.png"
+              src="/assets/boni-logo.png"
               alt="Boni AI Assistant"
               className={styles.logo}
               width={120}

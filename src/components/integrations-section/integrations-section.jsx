@@ -138,7 +138,7 @@ export function IntegrationsSection() {
                     >
                       <div className={styles.iconBox}>
                         <img 
-                          src={`/src/assets/tools/${imageName}.png`} 
+                          src={`/assets/tools/${imageName}.png`} 
                           alt={integration.name}
                           className={styles.integrationIcon} 
                         />

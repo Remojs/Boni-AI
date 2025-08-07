@@ -6,7 +6,7 @@ export function Footer() {
       <div className={styles.content}>
         <div className={styles.flexContainer}>
           <div className={styles.logoContainer}>
-            <img src="/src/assets/boni-logo.png" alt="Boni AI Assistant" className={styles.logo} width={120} height={36} />
+            <img src="/assets/boni-logo.png" alt="Boni AI Assistant" className={styles.logo} width={120} height={36} />
           </div>
 
           <div className={styles.copyright}>
