@@ -54,3 +54,43 @@
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
+
+/* Developed by bar */
+.devContainer {
+  background-color: #010e1a;
+  border-top: 1px solid rgba(92, 124, 137, 0.1);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.devLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.devLink:hover {
+  opacity: 1;
+}
+
+.devText {
+  color: #5C7C89;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.devLogo {
+  height: 1.5rem;
+  width: auto;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.devLink:hover .devLogo {
+  opacity: 1;
+}
